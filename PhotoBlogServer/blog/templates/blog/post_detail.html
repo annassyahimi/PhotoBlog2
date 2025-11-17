@@ -1,18 +1,35 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
-    <div class="post">
-        {% if post.created_at %}
-            <div class="date">
-                {{ post.created_at }}
-            </div>
-        {% endif %}
-        {% if user.is_authenticated %}    
-            <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}">
-                <span class="glyphicon glyphicon-pencil"></span>
-            </a>
-        {% endif %}
-        <h1>{{ post.title }}</h1>
-        <p>{{ post.text|linebreaksbr }}</p>
+
+<div class="post" style="margin-bottom: 40px;">
+
+    <div style="font-size: 14px; color: #555;">
+        {{ post.created_at }}
     </div>
+
+    <h2 style="margin: 5px 0;">
+        {{ post.title }}
+    </h2>
+
+    <p style="margin: 0 0 15px 0;">
+        {{ post.text }}
+    </p>
+
+    {% if post.image %}
+        <img src="{{ post.image.url }}" 
+             alt="{{ post.title }}" 
+             style="width: 350px; border-radius: 6px;">
+    {% endif %}
+
+</div>
+
+<a href="/" style="
+    text-decoration: none;
+    color: #ff8c00;
+    font-weight: bold;
+">
+    ← Back to list
+</a>
+
 {% endblock %}

@@ -1,17 +1,28 @@
-{% extends 'blog/base.html' %} 
-{% load static %}
+{% extends 'blog/base.html' %}
 
 {% block content %}
-  {% for post in posts %}
-    <div class="post">
-      <div class="date">
-        {{ post.created_at }}
-      </div>
-      <h1><a href="">{{ post.title }}</a></h1>
-      <p>{{ post.text|linebreaksbr }}</p>
-    {% if post.image %}
-      <img src="{{ post.image.url }}" class="rounded intruder-image-list" alt="{{ post.title }}" width="300">
-    {% endif %}
-  </div>
-  {% endfor %%}
+    {% for post in posts %}
+        <div class="post">
+
+            <div style="font-size: 14px; color: #555;">
+                {{ post.created_at }}
+            </div>
+            
+            <h2 style="margin: 5px 0;">
+                {{ post.title }}
+            </h2>
+
+            <p style="margin: 0 0 10px 0;">
+                {{ post.text }}
+            </p>
+
+            {% if post.image %}
+                <img src="{{ post.image.url }}" 
+                     alt="{{ post.title }}" 
+                     width="300">
+            {% endif %}
+
+        </div>
+    {% endfor %}
 {% endblock %}
+
