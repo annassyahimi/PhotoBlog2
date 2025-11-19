@@ -12,9 +12,9 @@ db.sqlite3
 *.log
 
 
-yolov5s.pt
-*.pt
-runs/
+# yolov5s.pt
+# *.pt
+# runs/
 
 
 .DS_Store
