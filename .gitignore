@@ -15,7 +15,7 @@ db.sqlite3
 # yolov5s.pt
 # *.pt
 # runs/
-
+YOLOv5/venv/
 
 .DS_Store
 
